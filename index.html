@@ -3,58 +3,19 @@
 <head>
 <meta charset="utf-8">
 <title>Rock-paper-scissors</title>
+<script src="js/script.js" defer></script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Rock Paper and Scissors</h1>
-    
-    
 
-    <script>
-      
-        // GET computer choice, either rock paper or scissor
-    
-       console.log(playGame())
-       
-        function getCompChoice(){
-          let rand = Math.floor(Math.random() * 3);
-            if(rand === 0 ){
-                return "rock";
-            }else if(rand === 1){
-                return "paper";
-            }else if(rand === 2){
-                return "scissors";
-            }
-        }
-      
+    <div class="playButtons">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+    </div>
 
-        function playRound(choice, compChoice){
-            if((choice === "rock" && compChoice === "paper") ||
-            (choice === "paper" && compChoice === "scissors") ||
-            (choice === "scissors" && compChoice === "rock")){
-                return "You lose";
-            }else if((choice === "rock" && compChoice === "scissors") ||
-            (choice === "paper" && compChoice === "rock") ||
-            (choice === "scissors" && compChoice === "paper")){
-                return "You win";
-            }else if(choice === compChoice){
-                return "You tied"
-            }
-        }
-        
-        //loop the round 5 times
-        function playGame(){
-            let i = 5
-            while(i>0){
-                const playerChoice = prompt("Rock, Paper, or Scissors", "").toLowerCase();
-       const compChoice = getCompChoice();
-       console.log(playRound(playerChoice, compChoice))
-                i--;
-            }
-
-        }
-
-
-
-    </script>
+    <div class="results">
+    </div>    
 </body>
 </html>

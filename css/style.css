@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+}
+p{
+    margin: 1rem;
+}
+.results{
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.playButtons{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 3rem;
+}
+
+.rock{
+    background-color: #505152;
+    color: #faf6ed;
+}
+
+.paper{
+    background-color: #faf6ed;
+}
+
+.scissors{
+    background-color:#929ba8 ;
+    color: #222329;
+}
