@@ -6,6 +6,7 @@
         const scissorsButton = document.querySelector(".scissors");
         let results = document.querySelector(".results");
         let roundResult = document.createElement('p');
+        let compChoice;
         //create the paragraph nodes
         let winCounter = document.createElement('p');
          let loseCounter = document.createElement('p');
@@ -67,36 +68,53 @@
          }
        
  
-         function playRound(choice, compChoice){
-             if((choice === "rock" && compChoice === "paper") ||
-             (choice === "paper" && compChoice === "scissors") ||
-             (choice === "scissors" && compChoice === "rock")){
-                 return "You lose";
-             }else if((choice === "rock" && compChoice === "scissors") ||
-             (choice === "paper" && compChoice === "rock") ||
-             (choice === "scissors" && compChoice === "paper")){
-                 return "You win";
-                
-             }else if(choice === compChoice){
-                return "You tied"
-             
-             }
+         function playRound(choice, cChoice){
+            compChoice = cChoice;
+             if(compChoice === "paper"){
+                switch(choice){
+                    case "rock":
+                        return `You lose, Computer chose ${compChoice} `;
+                    case "paper":
+                        return `You tied, Computer chose ${compChoice} `
+                    case "scissors":
+                        return `You win, Computer chose ${compChoice} `;
+                }
+            }else if(compChoice === "scissors"){
+                switch(choice){
+                    case "rock":
+                        return `You win, Computer chose ${compChoice} `;
+                    case "paper":
+                        return `You lose, Computer chose ${compChoice} ` ;
+                    case "scissors":
+                        return `You tied, Computer chose ${compChoice} `;
+                }
+            }else if(compChoice === "rock"){
+                switch(choice){
+                    case "rock":
+                        return `You tied, Computer chose ${compChoice} `;
+                    case "paper":
+                        return `You win, Computer chose ${compChoice} `;
+                    case "scissors":
+                        return `You lose, Computer chose ${compChoice} `;
+                }
+            
          }
+        };
  
          function counter(result){
          //IF the returning result is win, win counter goes up
          switch(result){
-             case "You win":
+             case `You win, Computer chose ${compChoice} `:
                  ++win;
                  winCounter.textContent = `Wins: ${win}`
                  loseCounter.textContent = `Losses: ${lose}`
                  break;
-             case "You lose":
+             case `You lose, Computer chose ${compChoice} `:
                   ++lose;
                  winCounter.textContent = `Wins: ${win}`
                  loseCounter.textContent = `Losses: ${lose}`
                  break;
-              case "You tied":
+              case `You tied, Computer chose ${compChoice} `:
                  winCounter.textContent = `Wins: ${win}`
                  loseCounter.textContent = `Losses: ${lose}`
                  break;
